@@ -48,10 +48,16 @@ import ibm_db      # Contains The APIs Needed To Work With Db2 Databases
 #-------------------------------------------------------------------------------------------------#
 from ipynb_exit import exit
 
+import json
+
+file_path = 'config.json'
+
+with open(file_path, 'r') as file:
+        data = json.load(file)
 # Define And Initialize The Appropriate Variables
-dbName = "SAMPLE"
-userID = "db2inst1"
-passWord = "db2inst1"
+dbName = data['database']
+userID = data['user']
+passWord = data['password']
 connOption = {ibm_db.SQL_ATTR_AUTOCOMMIT : ibm_db.SQL_AUTOCOMMIT_ON}
 dbConnection = None
 

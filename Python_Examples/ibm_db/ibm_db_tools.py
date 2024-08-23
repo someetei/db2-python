@@ -69,8 +69,8 @@ class Db2ConnectionMgr():
     #                  userID   - User authentication ID                                          #
     #                  passWord - User password                                                   #
     #---------------------------------------------------------------------------------------------#
-    def __init__(self, dsType='', dbName=None, hostName='', portNum='', 
-                 userID=None, passWord=None):
+    def __init__(self, dsType='', dbName=None, hostName='', portNum='', userID=None, passWord=None):
+
         """Initialize Db2 server or database name, user ID, and password attributes."""
 
         self.dsType = dsType
@@ -83,7 +83,7 @@ class Db2ConnectionMgr():
         self.returnCode = False
 
         # If A Data Source Type Was Not Specified, Use 'DB' By Default
-        if self.dsType is '':
+        if self.dsType == '':
             self.dsType = 'DB'
 
     #---------------------------------------------------------------------------------------------#
@@ -100,23 +100,23 @@ class Db2ConnectionMgr():
         msgString = ""
         
         # If A Host Name Was Not Specified, Use The Name That Is Assigned To The Current Server
-        if self.hostName is '':
+        if self.hostName == '':
             self.hostName = socket.gethostname()
 
         # If A Port Number Was Not Specified, Use Port Number 50000
-        if self.portNum is '':
+        if self.portNum == '':
             self.portNum = '50000'
 
         # Display An Appropriate Status Message And Add The Correct "ATTACH" Value To The
         # Connection String Variable (connString)
         msgString = "\nConnecting to the "
-        if self.dsType is 'LOCAL_SVR':
+        if self.dsType == 'LOCAL_SVR':
             print(msgString + "local server ... ", end="")
             if get_ipython():                             # If Running With IPython, ...
                 connString += ";ATTACH=TRUE"              # Attach To A Server; Not A Database
             else:
                 connString = "ATTACH=TRUE"                # Attach To A Server; Not A Database
-        elif self.dsType is 'SERVER':
+        elif self.dsType == 'SERVER':
             print(msgString + self.hostName + " server ... ", end="")
             connString += ";ATTACH=TRUE"                  # Attach To A Server; Not A Database
         else:
@@ -125,7 +125,7 @@ class Db2ConnectionMgr():
 
         # If Appropriate, Construct The Portion Of The Connection String That Will Be Used To
         # Establish A Connection To The Local Db2 Server
-        if self.dsType is 'LOCAL_SVR':
+        if self.dsType == 'LOCAL_SVR':
             if get_ipython():                             # If Running With IPython, ...
                 connString += ";HOSTNAME=" + socket.gethostname()
                 connString += ";PORT=" + self.portNum
@@ -162,9 +162,9 @@ class Db2ConnectionMgr():
         # And Set The Function Return Code Attribute To "False"
         if self.connectionID is None:
             msgString = "\nERROR: Unable to connect to the "
-            if self.dsType is 'LOCAL_SVR':
+            if self.dsType == 'LOCAL_SVR':
                 print(msgString + "local server ... ", end="")
-            elif self.dsType is 'SERVER':
+            elif self.dsType == 'SERVER':
                 print(msgString + self.hostName + " server.")
             else:
                 print(msgString + self.dbName + " database.")
@@ -197,9 +197,9 @@ class Db2ConnectionMgr():
 
             # Display An Appropriate Status Message
             msgString = "Disconnecting from the "
-            if self.dsType is 'LOCAL_SVR':
+            if self.dsType == 'LOCAL_SVR':
                 print(msgString + "local server ... ", end="")
-            elif self.dsType is 'SERVER':
+            elif self.dsType == 'SERVER':
                 print(msgString + self.hostName + " server ... ", end="")
             else:
                 print(msgString + self.dbName + " database ... ", end="")
@@ -214,9 +214,9 @@ class Db2ConnectionMgr():
             # And Set The Return Code Attribute To "False"
             if returnCode is False:
                 msgString = "\nERROR: Unable to disconnect from the "
-                if self.dsType is 'LOCAL_SVR':
+                if self.dsType == 'LOCAL_SVR':
                     print(msgString + "local server.")
-                elif self.dsType is 'SERVER':
+                elif self.dsType == 'SERVER':
                     print(msgString + self.hostName + " server.")
                 else:
                     print(msgString + self.dbName + " database.")
@@ -349,7 +349,7 @@ def query_sdb_dir(dbName):
         tempStr = tempStr[:endingPos]
         tempStr = tempStr.replace('entry&', 'entry:', 1)
         endingPos -= 1
-        while not tempStr[endingPos] is '\n':
+        while tempStr[endingPos] != '\n':
             endingPos -= 1
         dirInfo = tempStr[:endingPos]
 

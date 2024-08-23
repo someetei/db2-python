@@ -37,10 +37,16 @@
 import sys         # Provides Information About Python Interpreter Constants, Functions, & Methods
 import ibm_db_dbi  # Contains The APIs Needed To Work With Db2 Databases
 
+import json
+
+file_path = 'config.json'
+
+with open(file_path, 'r') as file:
+        data = json.load(file)
 # Define And Initialize The Appropriate Variables
-dbName = "SAMPLE"        # The Alias For The Cataloged, Local Database
-userID = "db2inst1"      # The Instance User ID At The Local Server
-passWord = "db2inst1"    # The Password For The Instance User ID At The Local Server
+dbName = data['database']        # The Alias For The Cataloged, Local Database
+userID = data['user']      # The Instance User ID At The Local Server
+passWord = data['password']    # The Password For The Instance User ID At The Local Server
 connectionID = None
 returnCode = False
 

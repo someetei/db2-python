@@ -48,11 +48,17 @@ import ibm_db      # Contains The APIs Needed To Work With Db2 Databases
 #-------------------------------------------------------------------------------------------------#
 from ipynb_exit import exit
 
+import json
+
+file_path = 'config.json'
+
+with open(file_path, 'r') as file:
+        data = json.load(file)
 # Define And Initialize The Appropriate Variables
-hostName = "172.18.0.2"    # IP Address Of Remote Server
-portNum = "50000"             # Port Number That Receives Db2 Connections On The Remote Server 
-userID = "db2inst1"           # The Instance User ID At The Remote Server
-passWord = "db2inst1"           # The Password For The Instance User ID At The Remote Server
+hostName = data['hostname']     # IP Address Of Remote Server
+portNum = data['port']          # Port Number That Receives Db2 Connections On The Remote Server 
+userID = data['user']           # The Instance User ID At The Remote Server
+passWord = data['password']     # The Password For The Instance User ID At The Remote Server
 connectionID = None
 
 # Display A Status Message Indicating An Attempt To Establish A Connection To A Db2 Server

@@ -62,9 +62,15 @@ from ibm_db_tools import query_sdb_dir
 #-------------------------------------------------------------------------------------------------#
 from ipynb_exit import exit
 
+import json
+
+file_path = 'config.json'
+
+with open(file_path, 'r') as file:
+        data = json.load(file)
 # Define And Initialize The Appropriate Variables
-userID = "db2inst1"           # User ID (Recognized By The Local Server)
-passWord = "db2inst1"         # User Password
+userID = data['user']          # User ID (Recognized By The Local Server)
+passWord = data['password']        # User Password
 svrConnection = None
 dbName = "MY_DB"
 returnCode = False

@@ -62,11 +62,17 @@ from ibm_db_tools import query_sdb_dir
 #-------------------------------------------------------------------------------------------------#
 from ipynb_exit import exit
 
+import json
+
+file_path = 'config.json'
+
+with open(file_path, 'r') as file:
+        data = json.load(file)
 # Define And Initialize The Appropriate Variables
-hostName = "172.18.0.2"    # IP Address Of A Remote Server
-portNum = "50000"             # Port Number Used By Db2
-userID = "db2inst1"           # User ID (Recognized By The Remote Server)
-passWord = "db2inst1"           # User Password
+hostName = data['hostname']     # IP Address Of A Remote Server
+portNum = data['port']             # Port Number Used By Db2
+userID = data['user']          # User ID (Recognized By The Remote Server)
+passWord = data['password']            # User Password
 svrConnection = None
 dbName = "MY_DB"
 returnCode = False

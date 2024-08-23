@@ -44,10 +44,16 @@ import ibm_db_dbi  # Contains The APIs Needed To Work With Db2 Databases
 #-------------------------------------------------------------------------------------------------#
 from ibm_db_dbi_tools import get_row_count
 
+import json
+
+file_path = 'config.json'
+
+with open(file_path, 'r') as file:
+        data = json.load(file)
 # Define And Initialize The Appropriate Variables
-dbName = "SAMPLE"        # The Alias For The Cataloged, Local Database
-userID = "db2inst1"      # The Instance User ID At The Local Server
-passWord = "db2inst1"    # The Password For The Instance User ID At The Local Server
+dbName = data['database']        # The Alias For The Cataloged, Local Database
+userID = data['user']      # The Instance User ID At The Local Server
+passWord = data['password']    # The Password For The Instance User ID At The Local Server
 connectionID = None
 resultSet = False
 returnCode = False
@@ -91,7 +97,7 @@ if returnCode is False:
     exit(-1)
 
 # Define The INSERT Statement That Is To Be Used To Add Data To The DEPARTMENT Table
-sqlStatement = "INSERT INTO department VALUES('K01', 'SALES', '000130', 'K01', NULL)"
+sqlStatement = "INSERT INTO department VALUES('K04', 'SALES', '000130', 'K01', NULL)"
 
 # Execute The SQL Statement Just Defined
 print("Inserting a record into the DEPARTMENT table ... ", end="")

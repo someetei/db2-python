@@ -35,7 +35,6 @@
 # Load The Appropriate Python Modules
 import sys         # Provides Information About Python Interpreter Constants, Functions, & Methods
 import ibm_db      # Contains The APIs Needed To Work With Db2 Databases
-
 #-------------------------------------------------------------------------------------------------#
 # Import The Db2ConnectionMgr Class Definition, Attributes, And Methods That Have Been Defined    #
 # In The File Named "ibm_db_tools.py"; This Class Contains The Programming Logic Needed To        #
@@ -50,11 +49,16 @@ from ibm_db_tools import Db2ConnectionMgr
 # Invoked In A Jupyter Notebook                                                                   #
 #-------------------------------------------------------------------------------------------------#
 from ipynb_exit import exit
+import json
 
+file_path = 'config.json'
+
+with open(file_path, 'r') as file:
+        data = json.load(file)
 # Define And Initialize The Appropriate Variables
-dbName = "SAMPLE"
-userID = "db2inst1"
-passWord = "db2inst1"
+dbName = data['database']
+userID = data['user']
+passWord = data['password']
 dbConnection = None
 connState = False
 

@@ -48,10 +48,16 @@ import ibm_db      # Contains The APIs Needed To Work With Db2 Databases
 #-------------------------------------------------------------------------------------------------#
 from ipynb_exit import exit
 
+import json
+
+file_path = 'config.json'
+
+with open(file_path, 'r') as file:
+        data = json.load(file)
 # Define And Initialize The Appropriate Variables
-dbName = "SAMPLE"
-userID = "db2inst1"
-passWord = "db2inst1"        # The Wrong Password Is Used To Force An Error To Occur
+dbName = data['database']
+userID = data['user']
+passWord = data['password']        # The Wrong Password Is Used To Force An Error To Occur
 dbConnection = None
 
 # Display A Status Message Indicating An Attempt To Establish A Connection To A Db2 Database

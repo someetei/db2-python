@@ -1,0 +1,7 @@
+{
+  "database" : "sample",
+  "user" : "db2inst1",
+  "password" : "db2inst1",
+  "hostname" : "172.18.0.2",
+  "port" : "50000"
+}

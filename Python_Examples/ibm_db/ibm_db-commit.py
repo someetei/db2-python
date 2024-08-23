@@ -63,10 +63,16 @@ from ibm_db_tools import get_row_count
 #-------------------------------------------------------------------------------------------------#
 from ipynb_exit import exit
 
+import json
+
+file_path = 'config.json'
+
+with open(file_path, 'r') as file:
+        data = json.load(file)
 # Define And Initialize The Appropriate Variables
-dbName = "SAMPLE"
-userID = "db2inst1"
-passWord = "db2inst1"
+dbName = data['database']
+userID = data['user']
+passWord = data['password']
 dbConnection = None
 returnCode = False
 resultSet = False
@@ -102,7 +108,7 @@ if returnCode is False:
     exit(-1)
 
 # Define The INSERT Statement That Is To Be Used To Add Data To The DEPARTMENT Table
-sqlStatement = "INSERT INTO department VALUES('K01', 'SALES', '000130', 'K01', NULL)"
+sqlStatement = "INSERT INTO department VALUES('K02', 'SALES', '000130', 'K01', NULL)"
 
 # Execute The SQL Statement Just Defined
 print("Inserting a record into the DEPARTMENT table ... ", end="")
