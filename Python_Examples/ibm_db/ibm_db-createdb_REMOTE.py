@@ -63,10 +63,10 @@ from ibm_db_tools import query_sdb_dir
 from ipynb_exit import exit
 
 # Define And Initialize The Appropriate Variables
-hostName = "197.126.80.22"    # IP Address Of A Remote Server
+hostName = "172.18.0.2"    # IP Address Of A Remote Server
 portNum = "50000"             # Port Number Used By Db2
-userID = "db2inst2"           # User ID (Recognized By The Remote Server)
-passWord = "ibmdb2"           # User Password
+userID = "db2inst1"           # User ID (Recognized By The Remote Server)
+passWord = "db2inst1"           # User Password
 svrConnection = None
 dbName = "MY_DB"
 returnCode = False

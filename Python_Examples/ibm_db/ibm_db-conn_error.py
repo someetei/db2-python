@@ -51,7 +51,7 @@ from ipynb_exit import exit
 # Define And Initialize The Appropriate Variables
 dbName = "SAMPLE"
 userID = "db2inst1"
-passWord = "Passw_rd"        # The Wrong Password Is Used To Force An Error To Occur
+passWord = "db2inst1"        # The Wrong Password Is Used To Force An Error To Occur
 dbConnection = None
 
 # Display A Status Message Indicating An Attempt To Establish A Connection To A Db2 Database

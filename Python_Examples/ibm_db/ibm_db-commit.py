@@ -66,7 +66,7 @@ from ipynb_exit import exit
 # Define And Initialize The Appropriate Variables
 dbName = "SAMPLE"
 userID = "db2inst1"
-passWord = "Passw0rd"
+passWord = "db2inst1"
 dbConnection = None
 returnCode = False
 resultSet = False

@@ -48,7 +48,7 @@ from ibm_db_dbi_tools import get_row_count
 # Define And Initialize The Appropriate Variables
 dbName = "SAMPLE"        # The Alias For The Cataloged, Local Database
 userID = "db2inst1"      # The Instance User ID At The Local Server
-passWord = "Passw0rd"    # The Password For The Instance User ID At The Local Server
+passWord = "db2inst1"    # The Password For The Instance User ID At The Local Server
 connectionID = None
 resultSet = False
 returnCode = False

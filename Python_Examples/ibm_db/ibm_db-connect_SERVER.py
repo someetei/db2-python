@@ -49,10 +49,10 @@ import ibm_db      # Contains The APIs Needed To Work With Db2 Databases
 from ipynb_exit import exit
 
 # Define And Initialize The Appropriate Variables
-hostName = "197.126.80.22"    # IP Address Of Remote Server
+hostName = "172.18.0.2"    # IP Address Of Remote Server
 portNum = "50000"             # Port Number That Receives Db2 Connections On The Remote Server 
-userID = "db2inst2"           # The Instance User ID At The Remote Server
-passWord = "ibmdb2"           # The Password For The Instance User ID At The Remote Server
+userID = "db2inst1"           # The Instance User ID At The Remote Server
+passWord = "db2inst1"           # The Password For The Instance User ID At The Remote Server
 connectionID = None
 
 # Display A Status Message Indicating An Attempt To Establish A Connection To A Db2 Server

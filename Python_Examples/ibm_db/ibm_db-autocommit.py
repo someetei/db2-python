@@ -51,7 +51,7 @@ from ipynb_exit import exit
 # Define And Initialize The Appropriate Variables
 dbName = "SAMPLE"
 userID = "db2inst1"
-passWord = "Passw0rd"
+passWord = "db2inst1"
 connOption = {ibm_db.SQL_ATTR_AUTOCOMMIT : ibm_db.SQL_AUTOCOMMIT_ON}
 dbConnection = None
 
@@ -88,7 +88,7 @@ except Exception:
     pass
 
 # If Autocommit Behavior Is OFF, Turn It ON
-if returnCode is 0:
+if returnCode == 0:
     print("AUTOCOMMIT behavior is OFF; turning it ON ... ", end="")
     try:
         returnCode = ibm_db.autocommit(dbConnection, ibm_db.SQL_AUTOCOMMIT_ON)
@@ -104,7 +104,7 @@ if returnCode is 0:
         print("Done!\n")
 
 # If Autocommit Behavior Is ON, Turn It OFF
-elif returnCode is 1:
+elif returnCode == 1:
     print("AUTOCOMMIT behavior is ON; turning it OFF ... ", end="")
     try:
         returnCode = ibm_db.autocommit(dbConnection, ibm_db.SQL_AUTOCOMMIT_OFF)
@@ -125,9 +125,9 @@ try:
 except Exception:
     pass
 
-if returnCode is 0:
+if returnCode == 0:
     print("AUTOCOMMIT behavior is now OFF.\n")
-elif returnCode is 1:
+elif returnCode == 1:
     print("AUTOCOMMIT behavior is now ON.\n")
 
 # Attempt To Close The Db2 Database Connection That Was Opened Earlier

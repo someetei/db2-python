@@ -54,7 +54,7 @@ from ipynb_exit import exit
 # Define And Initialize The Appropriate Variables
 dbName = "SAMPLE"
 userID = "db2inst1"
-passWord = "Passw0rd"
+passWord = "db2inst1"
 svrConnection = None
 serverInfo = False
 
@@ -179,7 +179,7 @@ else:
             print("{:<19}".format(serverInfo.KEYWORDS[loopCounter]), end="")
             colNumber += 1
             loopCounter += 1
-            if colNumber is 5:
+            if colNumber == 5:
                 print()
             if loopCounter is len(serverInfo.KEYWORDS):
                 break

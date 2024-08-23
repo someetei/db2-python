@@ -41,7 +41,7 @@ import ibm_db_dbi  # Contains The APIs Needed To Work With Db2 Databases
 # Define And Initialize The Appropriate Variables
 dbName = "SAMPLE"        # The Alias For The Cataloged, Local Database
 userID = "db2inst1"      # The Instance User ID At The Local Server
-passWord = "Passw0rd"    # The Password For The Instance User ID At The Local Server
+passWord = "db2inst1"    # The Password For The Instance User ID At The Local Server
 connectionID = None
 spName = "HIGH_EARNERS"
 returnCode = False
@@ -216,19 +216,19 @@ while noData is False:
         printHeader = False
 
     # Print The Records In The Appropriate Result Set
-    if loopCounter is 1:
+    if loopCounter == 1:
         for dataRecord in resultSet_1:
             print("  {:<14}" .format(dataRecord[0]), end="")
             print("  {:<18}" .format(dataRecord[1]), end="")
             print("  ${:>9}" .format(dataRecord[2]), end="")
             print("  {:<10}" .format(dataRecord[3]))
-    elif loopCounter is 2:
+    elif loopCounter == 2:
         for dataRecord in resultSet_2:
             print("  {:<14}" .format(dataRecord[0]), end="")
             print("  {:<18}" .format(dataRecord[1]), end="")
             print("  ${:>9}" .format(dataRecord[2]), end="")
             print("  {:<10}" .format(dataRecord[3]))
-    elif loopCounter is 3:
+    elif loopCounter == 3:
         for dataRecord in resultSet_3:
             print("  {:<14}" .format(dataRecord[0]), end="")
             print("  {:<18}" .format(dataRecord[1]), end="")
@@ -241,7 +241,7 @@ while noData is False:
     dataRecord = True
         
     # If There Is No More Data To Retrieve, Set The "No Data" Flag And Exit The Loop  
-    if loopCounter is 4:
+    if loopCounter == 4:
         noData = True
     else:
         continue

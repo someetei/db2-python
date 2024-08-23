@@ -64,7 +64,7 @@ from ipynb_exit import exit
 
 # Define And Initialize The Appropriate Variables
 userID = "db2inst1"           # User ID (Recognized By The Local Server)
-passWord = "Passw0rd"         # User Password
+passWord = "db2inst1"         # User Password
 svrConnection = None
 dbName = "MY_DB"
 returnCode = False

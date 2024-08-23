@@ -53,7 +53,7 @@ from ipynb_exit import exit
 # Define And Initialize The Appropriate Variables
 dbName = "SAMPLE"
 userID = "db2inst1"
-passWord = "Passw0rd"
+passWord = "db2inst1"
 dbConnection = None
 
 # Create A Dictionary That Contains Connection Options That Can Be Set Before A Database
@@ -98,7 +98,7 @@ print("_________________________  ____________________")
 # Retrieve And Display The Ordinal Value For The Current AUTOCOMMIT Setting
 value = ibm_db.get_option(dbConnection, ibm_db.SQL_ATTR_AUTOCOMMIT, 1)
 print("SQL_ATTR_AUTOCOMMIT        ", end="")
-print(ord(value))
+print(ord(str(value)))
 
 # Retrieve And Display The Schema Name That Was Set During The Connection
 value = ibm_db.get_option(dbConnection, ibm_db.SQL_ATTR_CURRENT_SCHEMA, 1)

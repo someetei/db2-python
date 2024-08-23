@@ -53,7 +53,7 @@ from ipynb_exit import exit
 # Define And Initialize The Appropriate Variables
 dbName = "SAMPLE"        # The Alias For The Cataloged, Local Database
 userID = "db2inst1"      # The Instance User ID At The Local Server
-passWord = "Passw0rd"    # The Password For The Instance User ID At The Local Server
+passWord = "db2inst1"    # The Password For The Instance User ID At The Local Server
 dbConnection = list(range(10))
 resultSet = False
 returnCode = False

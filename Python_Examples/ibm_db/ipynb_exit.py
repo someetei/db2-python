@@ -70,7 +70,7 @@ class ipynb_Exit(SystemExit):
 #               terminate a connection to a Db2 server or database.                               #
 #-------------------------------------------------------------------------------------------------#
 def customExit(returnCode=0):
-    if returnCode is 0:
+    if returnCode == 0:
         ipynb_Exit()
     else:
         raise ipynb_Exit
